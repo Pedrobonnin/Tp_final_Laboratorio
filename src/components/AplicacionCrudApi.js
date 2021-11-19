@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { helpHttp } from "../Helpers/helpHttp";
+import { helphttp } from "../Helpers/helphttp";
 import AplicacionCrudForm from "./AplicacionCrudForm";
 import AplicacionCrudTable from "./AplicacionCrudTable";
 import MessageApi from "./MessageApi";
@@ -11,13 +11,13 @@ const AplicacionCrudApi  = () => {
     const [error,setError] = useState(null);//hace una insercion SI es NULL, edita si NO
     const [loading, setLoading] = useState(false);
 
-    let api=helpHttp();
+    let api=helphttp();
     let url= "http://localhost:5000/personas";//conecta api
 
     //mostamos la respuesta
     useEffect(()=>{
             setLoading(true); //actualiza la variable setLoading 
-            helpHttp().get(url).then((res)=>{//importa GET del Helper
+            helphttp().get(url).then((res)=>{//importa GET del Helper
 
                 if(!res.err){//recibe la llamada error
                     setDb(res)// 
@@ -34,7 +34,7 @@ const AplicacionCrudApi  = () => {
 
 
   const createData = (data) => { //devuelve una promesa
-    data.id = Date.now(); //para creear un us en el campo
+    data.id = Date.now(); //para creear un id en el nuevo campo
 
     let options = {
       body: data,
