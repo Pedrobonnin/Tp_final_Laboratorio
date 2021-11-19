@@ -103,7 +103,7 @@ const AplicacionCrudApi  = () => {
           setDataToEdit={setDataToEdit}
         />
         {loading}
-        {error && (
+        {error && ( //carga el mensage error
           <MessageApi
             msg={`Error ${error.status}: ${error.statusText}`}
             bgColor="#011c19"
